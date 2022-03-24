@@ -19,10 +19,7 @@ public class TimecardDA {
     //maybe create delete method
     
     public static void initialize() {
-        
-        /*only did one timecard foe each employee, couldn't figure out my methods
-        for calculating totalhours/totalovertimehours when there was more than
-        one for each employee*/
+
         Timecard t;
         Calendar c;
         c = Calendar.getInstance();
@@ -35,15 +32,33 @@ public class TimecardDA {
         t.setOvertimeHours(5);
         
         timecards.add(t);
+        
+        t = new Timecard();
+        c.set(2022, 01, 16);
+        t.setDate(c.getTime());
+        t.setEmployeeId(103);
+        t.setHoursWorked(30);
+        t.setOvertimeHours(5);
+        
+        timecards.add(t);
                
         t = new Timecard();
         c.set(2022, 01, 15);
         t.setDate(c.getTime());
         t.setEmployeeId(104);
-        t.setHoursWorked(40);
+        t.setHoursWorked(35);
         t.setOvertimeHours(3);
         
-        timecards.add(t);                        
+        timecards.add(t);  
+        
+        t = new Timecard();
+        c.set(2022, 01, 16);
+        t.setDate(c.getTime());
+        t.setEmployeeId(104);
+        t.setHoursWorked(36);
+        t.setOvertimeHours(3);
+        
+        timecards.add(t);
     }
     
     public static ArrayList<Timecard> getTimecards() {
@@ -52,17 +67,16 @@ public class TimecardDA {
     
     public static ArrayList<Timecard> getEmployeeTimecards(int employeeId) {
         ArrayList<Timecard> timecardsToGet = Timecard.getTimecards();
-//        ArrayList<Timecard> employeeTimecards = new ArrayList<>();
-//        System.out.println("Timecard.getEmployeeTimecards  size of timecards = " + timecardsToGet.size());
-//        
-//        for (int i = 0; i < timecardsToGet.size(); i++) {
-//            Timecard r = new Timecard();
-//            if(employeeId == timecardsToGet.get(i).getEmployeeId())
-//            r = timecardsToGet.get(i);
-//          employeeTimecards.add(r);
-//        }
-//        System.out.println("Timecard.getEnployeeTimecards  size of employeeTimecards = " + employeeTimecards.size());
-//        return employeeTimecards;
-        return timecardsToGet;
+        ArrayList<Timecard> employeeTimecards = new ArrayList<>();
+        System.out.println("Timecard.getEmployeeTimecards  size of timecards = " + timecardsToGet.size());
+        
+        for (int i = 0; i < timecardsToGet.size(); i++) {
+            Timecard r = new Timecard();
+            if(employeeId == timecardsToGet.get(i).getEmployeeId())
+            r = timecardsToGet.get(i);
+          employeeTimecards.add(r);
+        }
+        System.out.println("Timecard.getEnployeeTimecards  size of employeeTimecards = " + employeeTimecards.size());
+        return employeeTimecards;
     }
 }

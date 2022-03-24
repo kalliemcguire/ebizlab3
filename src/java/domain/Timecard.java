@@ -2,10 +2,11 @@
 package domain;
 
 import database.TimecardDA;
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.*;
 
-public class Timecard {
+public class Timecard implements Serializable{
     private Date date;
     private int employeeId;
     private double hoursWorked;

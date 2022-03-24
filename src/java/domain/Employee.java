@@ -3,16 +3,20 @@
 package domain;
 
 import database.EmployeeDA;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public abstract class Employee {
+public abstract class Employee implements Serializable{
     private int employeeId;
     private String lastName;
     private String firstName;
     private long ssNumber;
     private String userID;
     private String password;
+
+    public Employee() {
+    }
 
     public int getEmployeeId() {
         return employeeId;

@@ -6,6 +6,7 @@
 package servlets;
 
 import database.EmployeeDA;
+import database.TimecardDA;
 import domain.Employee;
 import domain.PayrollSystem;
 import domain.Timecard;
@@ -48,7 +49,7 @@ public class TimecardServlet extends HttpServlet {
             Employee employee = (Employee)session.getAttribute("employee");
             System.out.println("employee: " + employee);
             //System.out.println shows in glassfish server section of output
-            ArrayList<Timecard> timecards = Timecard.getEmployeeTimecards(employee.getEmployeeId());
+            ArrayList<Timecard> timecards = TimecardDA.getEmployeeTimecards(employee.getEmployeeId());
             session.setAttribute("timecards", timecards);
             System.out.println("timecards" + timecards);
             url = "/timecardList.jsp";

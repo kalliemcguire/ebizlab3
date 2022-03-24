@@ -25,8 +25,8 @@ public class EmployeeDA {
         e.setFirstName("Bob");
         e.setLastName("Smith");
         e.setSsNumber(555121212);
-        e.setUserID("User1");
-        e.setPassword("user1");
+        e.setUserID("x");
+        e.setPassword("x");
         
         employees.add(e);
         

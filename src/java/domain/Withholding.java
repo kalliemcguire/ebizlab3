@@ -3,13 +3,17 @@ used to calculate withholding deductions from gross pay*/
 package domain;
 
 import database.WithholdingDA;
+import java.io.Serializable;
 import java.util.*;
 
-public class Withholding {
+public class Withholding implements Serializable{
     private int withholdingId;
     private String description;
     private double amount;
     private double rate;
+
+    public Withholding() {
+    }
 
     public int getWithholdingId() {
         return withholdingId;

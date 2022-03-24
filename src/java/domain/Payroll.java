@@ -3,19 +3,22 @@ getters/setters and toString for the payroll class*/
 package domain;
 
 import database.PayrollDA;
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class Payroll {
+public class Payroll implements Serializable{
     private Date payday;
     private int employeeId;
     private double grossPay;
     private double totalDeductions;
     private double netPay;
-    
+
+    public Payroll() {
+    }
     
     //payday is the date that the employees get paid
     public Date getPayday() {
